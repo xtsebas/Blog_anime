@@ -1,0 +1,17 @@
+{
+  "name": "animelist",
+  "version": "1.0.0",
+  "description": "a blog that can be use as a ranking to anime",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.9.1"
+  }
+}
