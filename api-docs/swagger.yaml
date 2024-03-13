@@ -1,0 +1,103 @@
+swagger: '2.0'
+info:
+  description: 'API Anime'
+  version: '1.0.0'
+  title: 'API del Blog de Anime blog:)'
+host: 'localhost:3000'
+basePath: '/'
+schemes:
+  - 'http'
+paths:
+  /posts:
+    get:
+      summary: 'Obtiene todos los posts publicados hasta el momento mostrando el título, sinopsis, gender'
+      responses:
+        200:
+          description: 'Una lista de posts de las publicaciones de animes.'
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/Post'
+    post:
+      summary: 'Crea un nuevo post, se tendrán que ingresar el título, sinopsis, genero'
+      consumes:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Información del post a crear tal como el título, sinopsis, genero'
+          required: true
+          schema:
+            $ref: '#/definitions/Post'
+      responses:
+        200:
+          description: 'Post creado exitosamente.'
+
+  /posts/{postId}:
+    get:
+      summary: 'Obtiene un post específico por ID.'
+      parameters:
+        - in: 'path'
+          name: 'postId'
+          required: true
+          type: 'integer'
+          description: 'El ID del post a obtener'
+      responses:
+        200:
+          description: 'Detalles del post solicitado.'
+          schema:
+            $ref: '#/definitions/Post'
+        404:
+          description: 'Post no encontrado.'
+
+    put:
+      summary: 'Actualiza un post existente.'
+      consumes:
+        - 'application/json'
+      parameters:
+        - in: 'path'
+          name: 'postId'
+          required: true
+          type: 'integer'
+          description: 'El ID del post a actualizar'
+        - in: 'body'
+          name: 'body'
+          description: 'Información actualizada del post'
+          required: true
+          schema:
+            $ref: '#/definitions/Post'
+      responses:
+        200:
+          description: 'Post actualizado exitosamente.'
+        404:
+          description: 'Post no encontrado.'
+
+    delete:
+      summary: 'Elimina un post específico.'
+      parameters:
+        - in: 'path'
+          name: 'postId'
+          required: true
+          type: 'integer'
+          description: 'El ID del post a eliminar'
+      responses:
+        200:
+          description: 'Post eliminado exitosamente.'
+        404:
+          description: 'Post no encontrado.'
+definitions:
+  Post:
+    type: 'object'
+    properties:
+      title:
+        type: 'string'
+      content:
+        type: 'string'
+      warframe:
+        type: 'string'
+      build:
+        type: 'string'
+      formasRequired:
+        type: 'integer'
+      imageBase64:
+        type: 'string'

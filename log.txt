@@ -1,0 +1,26 @@
+2024-03-13T00:31:05.847Z - POST /posts - Request Body: undefined
+2024-03-13T00:31:05.852Z - POST /posts - Response Status: 500
+2024-03-13T00:31:11.030Z - POST /posts - Request Body: undefined
+2024-03-13T00:31:11.031Z - POST /posts - Response Status: 500
+2024-03-13T00:31:19.914Z - GET /posts - Request Body: undefined
+2024-03-13T00:31:19.961Z - GET /posts - Response Status: 200
+2024-03-13T00:31:24.993Z - POST /posts - Request Body: undefined
+2024-03-13T00:31:24.994Z - POST /posts - Response Status: 500
+2024-03-13T00:33:20.318Z - POST /posts - Request Body: undefined
+2024-03-13T00:33:20.319Z - POST /posts - Response Status: 500
+2024-03-13T00:33:29.186Z - POST /posts - Request Body: undefined
+2024-03-13T00:33:29.188Z - POST /posts - Response Status: 500
+2024-03-13T00:34:20.138Z - POST /posts - Request Body: undefined
+2024-03-13T00:34:20.138Z - POST /posts - Response Status: 500
+2024-03-13T00:49:16.716Z - GET /posts - Request Body: undefined
+2024-03-13T00:49:16.771Z - GET /posts - Response Status: 500
+2024-03-13T01:11:03.378Z - GET /posts/1 - Request Body: {"title":"SHingeki no kyojin","sinopsis":"el mejor anime de todos.","gender":"Horror, Acción, Psicológico"}
+2024-03-13T01:11:03.420Z - GET /posts/1 - Response Status: 200
+2024-03-13T01:11:08.743Z - GET /posts - Request Body: {"title":"SHingeki no kyojin","sinopsis":"el mejor anime de todos.","gender":"Horror, Acción, Psicológico"}
+2024-03-13T01:11:08.746Z - GET /posts - Response Status: 200
+2024-03-13T01:22:17.235Z - DELETE /posts/2 - Request Body: {"title":"SHingeki no kyojin","sinopsis":"el mejor anime de todos.","gender":"Horror, Acción, Psicológico"}
+2024-03-13T01:22:17.315Z - DELETE /posts/2 - Response Status: 200
+2024-03-13T01:22:25.294Z - GET /posts/2 - Request Body: {"title":"SHingeki no kyojin","sinopsis":"el mejor anime de todos.","gender":"Horror, Acción, Psicológico"}
+2024-03-13T01:22:25.300Z - GET /posts/2 - Response Status: 200
+2024-03-13T01:22:28.256Z - GET /posts - Request Body: {"title":"SHingeki no kyojin","sinopsis":"el mejor anime de todos.","gender":"Horror, Acción, Psicológico"}
+2024-03-13T01:22:28.260Z - GET /posts - Response Status: 200
