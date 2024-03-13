@@ -6,7 +6,7 @@ import swaggerUi from 'swagger-ui-express';
 import { getAllPosts, getPostByID, createPost, deletePostByID, updatePostByID } from './db.js';
 
 const app = express();
-const port = 3000;
+const port = 22295;
 
 app.use(express.json());
 
