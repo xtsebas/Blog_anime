@@ -38,6 +38,10 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/hello', async (req, res)=>{
+    res.send('HELLO WELCOME')
+})
+
 //Todos los posts
 app.get('/posts', async (req, res) => {
     try {
