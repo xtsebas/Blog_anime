@@ -97,6 +97,36 @@ app.put('/posts/:id', async (req, res) => {
     }
 });
 
+// Ruta para obtener un usuario por nombre de usuario y contraseña
+app.post('/login', async (req, res) => {
+    try {
+        const { usuario, password } = req.body;
+        const user = await getUser(usuario, password);
+        if (user) {
+            res.status(200).json({ message: 'Inicio de sesión exitoso', user });
+        } else {
+            res.status(401).send('Usuario no encontrado o contraseña incorrecta');
+        }
+    } catch (error) {
+        res.status(500).send('Error al intentar iniciar sesión');
+    }
+});
+
+// Ruta para registrar un nuevo usuario
+app.post('/registro', async (req, res) => {
+    try {
+        const { usuario, password } = req.body;
+        const userId = await registerUser(usuario, password);
+        if (userId) {
+            res.status(200).json({ message: 'Usuario registrado exitosamente', userId });
+        } else {
+            res.status(500).send('Error al registrar el usuario');
+        }
+    } catch (error) {
+        res.status(500).send('Error al registrar el usuario');
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server listening at http://127.0.0.1:${port}`);
 });
