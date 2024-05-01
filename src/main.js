@@ -4,7 +4,7 @@ import fs from 'fs';
 import YAML from 'yamljs';
 import swaggerUi from 'swagger-ui-express';
 import { getAllPosts, getPostByID, createPost, deletePostByID, updatePostByID, getUser, registerUser, getAllUser } from './db.js';
-import { generateToken, validateToken } from './jwt.js'
+import { generateToken } from './jwt.js'
 
 const app = express();
 const port = 22295;
