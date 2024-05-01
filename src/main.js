@@ -104,7 +104,6 @@ app.post('/login', async (req, res) => {
         const { usuario, password } = req.body;
         const user = await getUser(usuario, password);
         if (user) {
-            const actions = await user_permissions(success)
             const USER = {
               username,
               password
