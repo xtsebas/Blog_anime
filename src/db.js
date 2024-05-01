@@ -44,7 +44,7 @@ async function updatePostByID(id, title, sinopsis, gender, created_at) {
 async function getUser(username, password) {
     const [rows] = await conn.query('SELECT usuario, password FROM user WHERE usuario = ? AND password = ?', [username, password]);
     if (rows.length > 0) {
-        return rows[0].id;
+        return rows[0];
     }
     return false;
 }
