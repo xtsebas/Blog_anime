@@ -67,6 +67,12 @@ async function registerUser(username, password) {
     }
 }
 
+async function getAllUser() {
+    // Ejecutar consulta SQL para seleccionar todos los registros en la tabla anime
+    const [rows] = await conn.query('SELECT * FROM user');
+    return rows;
+}
+
 
 // Exportar las funciones para que puedan ser utilizadas en otros módulos
-export { getAllPosts, getPostByID, createPost, deletePostByID, updatePostByID };
+export { getAllPosts, getPostByID, createPost, deletePostByID, updatePostByID, getUser, registerUser, getAllUser };

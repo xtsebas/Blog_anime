@@ -3,7 +3,7 @@ import cors from 'cors';
 import fs from 'fs';
 import YAML from 'yamljs';
 import swaggerUi from 'swagger-ui-express';
-import { getAllPosts, getPostByID, createPost, deletePostByID, updatePostByID } from './db.js';
+import { getAllPosts, getPostByID, createPost, deletePostByID, updatePostByID, getUser, registerUser, getAllUser } from './db.js';
 
 const app = express();
 const port = 22295;
@@ -124,6 +124,15 @@ app.post('/registro', async (req, res) => {
         }
     } catch (error) {
         res.status(500).send('Error al registrar el usuario');
+    }
+});
+
+app.post('/usuarios', async (req, res) => {
+    try {
+        const posts = await getAllUser();
+        res.status(200).json(posts);
+    } catch (error) {
+        res.status(500).send('An error occurred while fetching the posts.');
     }
 });
 
