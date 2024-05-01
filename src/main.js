@@ -4,6 +4,7 @@ import fs from 'fs';
 import YAML from 'yamljs';
 import swaggerUi from 'swagger-ui-express';
 import { getAllPosts, getPostByID, createPost, deletePostByID, updatePostByID, getUser, registerUser, getAllUser } from './db.js';
+import { generateToken, validateToken } from './jwt.js'
 
 const app = express();
 const port = 22295;
@@ -103,7 +104,15 @@ app.post('/login', async (req, res) => {
         const { usuario, password } = req.body;
         const user = await getUser(usuario, password);
         if (user) {
-            res.status(200).json({ message: 'Inicio de sesión exitoso', user });
+            const actions = await user_permissions(success)
+            const USER = {
+              username,
+              password
+            }
+            const token = generateToken(USER);
+            res.status(200);
+            res.json({ "success": true, access_token: token })
+            return
         } else {
             res.status(401).send('Usuario no encontrado o contraseña incorrecta');
         }

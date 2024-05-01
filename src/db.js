@@ -42,27 +42,19 @@ async function updatePostByID(id, title, sinopsis, gender, created_at) {
 }
 
 async function getUser(username, password) {
-    // Ejecutar consulta SQL para seleccionar un usuario específico por su nombre de usuario y verificar la contraseña
     const [rows] = await conn.query('SELECT usuario, password FROM user WHERE usuario = ? AND password = ?', [username, password]);
-    // Si se encuentra el usuario en la base de datos
     if (rows.length > 0) {
-        // Devolver los datos del usuario
-        return rows[0];
+        return rows[0].id;
     }
-    // Si no se encuentra el usuario o la contraseña no coincide, devolver null
-    return null;
+    return false;
 }
 
 
 async function registerUser(username, password) {
     try {
-        // Ejecutar consulta SQL para insertar un nuevo usuario en la tabla anime
         const [result] = await conn.query('INSERT INTO user (usuario, password) VALUES (?, ?)', [username, password]);
-
-        // Si la inserción es exitosa, devolver el ID del nuevo usuario insertado
         return result.insertId;
     } catch (error) {
-        // Si ocurre algún error durante la inserción, devolver null
         return null;
     }
 }
