@@ -127,7 +127,7 @@ app.post('/registro', async (req, res) => {
     }
 });
 
-app.post('/usuarios', async (req, res) => {
+app.get('/usuarios', async (req, res) => {
     try {
         const posts = await getAllUser();
         res.status(200).json(posts);
