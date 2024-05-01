@@ -104,7 +104,7 @@ app.post('/login', async (req, res) => {
         const { usuario, password } = req.body;
         console.log(usuario, password);
         const user = await getUser(usuario, password);
-        console.table(user);
+        console.log(user);
         if (user) {
             const USER = {
               username,
