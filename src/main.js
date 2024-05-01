@@ -107,7 +107,7 @@ app.post('/login', async (req, res) => {
         console.log(user);
         if (user) {
             const USER = {
-              username,
+              usuario,
               password
             }
             const token = generateToken(USER);
