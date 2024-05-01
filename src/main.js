@@ -101,10 +101,10 @@ app.put('/posts/:id', async (req, res) => {
 // Ruta para obtener un usuario por nombre de usuario y contraseña
 app.post('/login', async (req, res) => {
     try {
-        debugger;
         const { usuario, password } = req.body;
         console.log(usuario, password);
         const user = await getUser(usuario, password);
+        console.table(user);
         if (user) {
             const USER = {
               username,
