@@ -32,11 +32,11 @@ async function deletePostByID(id) {
     return true;
 }
 
-async function updatePostByID(id, title, sinopsis, gender, created_at) {
+async function updatePostByID(id, title, sinopsis, gender) {
     // Ejecutar consulta SQL para actualizar un registro específico por ID
     const [result] = await conn.query(
-        'UPDATE anime SET title = ?, sinopsis = ?, gender = ?, created_at = ? WHERE id = ?',
-        [title, sinopsis, gender, created_at, id]
+        'UPDATE anime SET title = ?, sinopsis = ?, gender = ? WHERE id = ?',
+        [title, sinopsis, gender, id]
     );
     return result;
 }
